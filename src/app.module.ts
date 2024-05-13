@@ -1,16 +1,17 @@
 import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { typeOrmConfig } from './config/typeorm.config';
-import { UsersModule } from './users/users.module';
-import { AuthModule } from './auth/auth.module';
-import { ProductsModule } from './products/products.module';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
+import { EmployeeModule } from './employee/employee.module';
+import { MongooseModule } from '@nestjs/mongoose';
+import { FormModule } from './form/form.module';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot(typeOrmConfig),
-    UsersModule,
-    AuthModule,
-    ProductsModule,
+    EmployeeModule,
+    MongooseModule.forRoot('mongodb://127.0.0.1/erp'),
+    FormModule,
   ],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}
