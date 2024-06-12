@@ -8,7 +8,7 @@ import { FormModule } from './form/form.module';
 @Module({
   imports: [
     EmployeeModule,
-    MongooseModule.forRoot('mongodb://127.0.0.1/erp'),
+    MongooseModule.forRoot('mongodb://127.0.0.1:27017/erp'),
     FormModule,
   ],
   controllers: [AppController],
